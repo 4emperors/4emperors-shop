@@ -1,5 +1,6 @@
 package com.fouremperors.study.web;
 
+import com.fouremperors.study.web.interceptor.SessionListener;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,14 +21,8 @@ public class WelcomeController {
 	public String welcome(Map<String, Object> model, HttpServletRequest request) {
 		model.put("time", new Date());
 		model.put("message",this.message);
+		model.put("counter", SessionListener.adder.sum());
 		return "welcome";
 	}
-	@RequestMapping("/{name}")
-	@ResponseBody
-	String home(@PathVariable String name) {
-
-		return "Hello World!"+name;
-	}
-
 
 }
