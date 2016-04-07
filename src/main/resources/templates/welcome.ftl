@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 
 <html lang="en">
-
-<body>
+<link href="css/main.css" rel="stylesheet" type="text/css"/>
+<body >
 Date: ${time?date}
 <br>
 Time: ${time?time}
