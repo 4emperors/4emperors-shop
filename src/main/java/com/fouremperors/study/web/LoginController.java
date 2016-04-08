@@ -1,23 +1,21 @@
 package com.fouremperors.study.web;
 
 import com.fouremperors.study.domain.User;
-import com.fouremperors.study.web.common.SessionKey;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
-import static com.fouremperors.study.web.common.SessionKey.*;
+import static com.fouremperors.study.web.common.SessionKey.LOGINED_USER;
+import static com.fouremperors.study.web.common.SessionKey.requestThreadLocal;
 
 /**
  * Created by qianfanyanfa on 16/4/7.
  */
 @Controller
 public class LoginController {
+
     /**
      * 登录页面
      */
@@ -37,8 +35,8 @@ public class LoginController {
 
 
     @RequestMapping("/login")
-    public String login(String name,String password,HttpServletRequest request) {
-        SMS_CODE.getSession();
+    public String login(String name,String password,HttpServletRequest request) throws InterruptedException {
+
         if(name.equals("keith")&&password.equals("123456")){
             User user=new User();
             user.setId(1L);
