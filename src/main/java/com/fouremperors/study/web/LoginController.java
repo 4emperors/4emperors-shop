@@ -1,6 +1,8 @@
 package com.fouremperors.study.web;
 
 import com.fouremperors.study.domain.User;
+import com.fouremperors.study.service.PersonService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,11 +18,15 @@ import static com.fouremperors.study.web.common.SessionKey.requestThreadLocal;
 @Controller
 public class LoginController {
 
+    @Autowired
+    PersonService personService;
+
     /**
      * 登录页面
      */
     @RequestMapping({"/toLogin"})
     public String toLogin(Model model, HttpServletRequest request) {
+        User u = LOGINED_USER.<User>getSession();
         return "toLogin";
     }
 
@@ -35,10 +41,10 @@ public class LoginController {
 
 
     @RequestMapping("/login")
-    public String login(String name,String password,HttpServletRequest request) throws InterruptedException {
+    public String login(String name, String password, HttpServletRequest request) throws InterruptedException {
 
-        if(name.equals("keith")&&password.equals("123456")){
-            User user=new User();
+        if (name.equals("keith") && password.equals("123456")) {
+            User user = new User();
             user.setId(1L);
             user.setNickName("K.F");
             user.setAge(21);

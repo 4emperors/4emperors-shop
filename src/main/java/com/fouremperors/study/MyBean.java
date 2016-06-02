@@ -18,7 +18,6 @@ public class MyBean implements CommandLineRunner {
         System.out.println("------custome init start------");
         Arrays.stream(args).forEach(System.out::println);
 
-
     }
 
 }
