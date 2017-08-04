@@ -3,7 +3,6 @@ package com.fouremperors.study.web.common;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Created by qianfanyanfa on 16/4/7.
  * 项目自定义session管理对象
  */
 public enum  SessionKey {

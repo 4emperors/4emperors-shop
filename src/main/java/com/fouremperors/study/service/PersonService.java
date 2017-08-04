@@ -19,8 +19,13 @@ public class PersonService {
     }
 
     public Person addPersion(Person person) {
-
         return personRepository.save(person);
+    }
+    public void delAll(){
+        personRepository.deleteAll();
+    }
 
+    public long getCount(){
+        return personRepository.count();
     }
 }

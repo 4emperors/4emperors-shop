@@ -25,4 +25,12 @@ public class WelcomeController {
 		return "welcome";
 	}
 
+	@RequestMapping("/user/info")
+	public String userInfo(Map<String, Object> model, HttpServletRequest request) {
+		model.put("time", new Date());
+		model.put("message",this.message);
+		model.put("counter", SessionListener.adder.sum());
+		return "welcome";
+	}
+
 }

@@ -6,13 +6,13 @@
 </head>
 <body>
 
-<form action="login" method="post">
-    <fieldset>
-        <legend>登录</legend>
-        用户名：<input name="name" value="keith" type="text"/>
-        密码：<input name="password" placeholder="123456" type="password"/>
-    </fieldset>
-    <input type="submit" value="登录">
+<form action="/login" method="post">
+    <label for="username">Username</label>:
+    <input type="text" id="username" name="username" autofocus="autofocus" /> <br />
+    <label for="password">Password</label>:
+    <input type="password" id="password" name="password" /> <br />
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+    <input type="submit" value="Log in" />
 </form>
 </body>
 </html>

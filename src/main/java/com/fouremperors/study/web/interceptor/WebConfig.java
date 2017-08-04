@@ -13,14 +13,14 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
         registry.addInterceptor(new InfoInterceptor()).addPathPatterns("/**");
 
-        registry.addInterceptor(new LoginInterceptor())
-                .addPathPatterns("/**")
-                .excludePathPatterns("/login","/toLogin")
+//        registry.addInterceptor(new LoginInterceptor())
+//                .addPathPatterns("/**")
+//                .excludePathPatterns("/login","/toLogin")
         ;
     }
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/api/**");
-    }
+//    @Override
+//    public void addCorsMappings(CorsRegistry registry) {
+//        registry.addMapping("/api/**");
+//    }
 
 }

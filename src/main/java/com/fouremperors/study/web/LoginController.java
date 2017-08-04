@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
 
 import static com.fouremperors.study.web.common.SessionKey.LOGINED_USER;
-import static com.fouremperors.study.web.common.SessionKey.requestThreadLocal;
 
 /**
  * Created by qianfanyanfa on 16/4/7.
@@ -24,7 +23,7 @@ public class LoginController {
     /**
      * 登录页面
      */
-    @RequestMapping({"/toLogin"})
+    @RequestMapping({"/login"})
     public String toLogin(Model model, HttpServletRequest request) {
         User u = LOGINED_USER.<User>getSession();
         return "toLogin";
@@ -40,9 +39,8 @@ public class LoginController {
     }
 
 
-    @RequestMapping("/login")
+//    @RequestMapping("/login")
     public String login(String name, String password, HttpServletRequest request) throws InterruptedException {
-
         if (name.equals("keith") && password.equals("123456")) {
             User user = new User();
             user.setId(1L);

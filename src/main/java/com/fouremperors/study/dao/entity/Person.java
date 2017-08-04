@@ -2,16 +2,38 @@ package com.fouremperors.study.dao.entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
+import org.springframework.data.redis.core.index.Indexed;
 
-@RedisHash("persons")
+import javax.annotation.Generated;
+
+@RedisHash
 public class Person {
 
     @Id
     String id;
 
-    String firstname;
+    public String getDate() {
+        return date;
+    }
 
-    String lastname;
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    @Indexed
+    String date;
+
+    public String getRealName() {
+        return realName;
+    }
+
+    public void setRealName(String realName) {
+        this.realName = realName;
+    }
+
+    @Indexed
+    String realName;
+
 
     public String getId() {
         return id;
@@ -21,19 +43,5 @@ public class Person {
         this.id = id;
     }
 
-    public String getFirstname() {
-        return firstname;
-    }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
 }
